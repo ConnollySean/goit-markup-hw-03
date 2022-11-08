@@ -7,14 +7,26 @@
     --background-light-color: #F5F4FA;
     --accent-color: #2196F3;  
     --accent-dark-color: #014379;
-   
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
 body {
     font-family: 'Roboto', sans-serif; 
     font-weight: 500;
     letter-spacing: 0.03em;
     color: var(--primary-text-color);
+    /* Include a "flex-grow: 1;" in the main to make that section be the one that expands to fill the page */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
@@ -62,6 +74,7 @@ ul {
     line-height: calc(16/14);
     letter-spacing: 0.02em;
     color: var(--secondary-text-color);
+    margin: 0 25px;
 }
 
 .header-contact:hover,
@@ -69,10 +82,52 @@ ul {
     color: var(--accent-color)
 }
 
+.header-menu {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ECECEC;
+}
+
+.header-nav-menu {
+    display: flex;
+}
+
+.nav-menu-title {
+    display: flex;
+    align-items: center;
+    margin-left: 93px;
+}
+
+.nav-menu {
+    display: flex;
+    width: 242px;
+    justify-content: space-between;
+}
+
+.header-contact-menu {
+    display: flex;
+}
+
 /* Hero */
+
+main {
+    flex-grow: 1;
+}
+
+.section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
 
 .hero-section {
     background-color: var(--background-dark-color);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-title {
@@ -83,6 +138,8 @@ ul {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--secondary-title-color);
+    display: inline-block;
+    width: 696px;
 }
 
 .hero-button {
@@ -96,9 +153,12 @@ ul {
     color: var(--secondary-title-color);
     background-color: var(--accent-color);
     cursor: pointer;
+    display: inline-block;
+    width: 200px;
+    border: 0;
+    padding: 10px;
+    margin: 40px;
 }
-
-/* Features */
 
 .hero-button:hover,
 .hero-button:focus {
@@ -106,16 +166,28 @@ ul {
     background-color: var(--accent-dark-color);
 }
 
-.features-title {
-    visibility: hidden;
+/* Features */
+
+.features-section {
+    display: flex;
+    justify-content: space-evenly;
 }
 
+.features-title {
+    display: none;
+}
+
+.features-card {
+    display: inline-block;
+    width: 270px;
+}
 .features-heading {
     font-weight: 700;
     font-size: 14px;
     line-height: calc(16/14);
     text-transform: uppercase;
     color: var(--primary-title-color);
+    margin-bottom: 10px;
 }
 
 .features-text {
@@ -133,6 +205,18 @@ ul {
     line-height: calc(42/36);
     text-align: center;
     color: var(--primary-title-color);
+    margin-bottom: 50px;
+}
+
+.what-we-do-section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px;
+}
+
+.what-we-do-section-cards {
+    display: flex;
+    justify-content: space-around;
 }
 
 /* Our Team */
@@ -141,11 +225,30 @@ ul {
     background-color: var(--background-light-color);
 }
 
+.our-team-card-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.team-contact-card {
+    background: var(--secondary-title-color);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 4px 4px;
+    height: 368px;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-picture {
+    margin-bottom: 30px;
+}
+
 .team-title {
     font-size: 16px;
     line-height: calc(19/16);
     text-align: center;
     color: var(--primary-title-color);
+    margin-bottom: 10px;
 }
 
 .team-text {
@@ -160,6 +263,10 @@ ul {
 
 .footer-section {
     background-color: var(--background-dark-color);
+    height: 252px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .footer-address {
@@ -194,6 +301,19 @@ ul {
 
 /* Our Portfolio */
 
+.portfolio-title {
+    display: none;
+}
+
+.portfolio-button-bar-title {
+    padding-bottom: 50px;
+}
+
+.portfolio-button-bar {
+    display: flex;
+    justify-content: center;
+}
+
 .portfolio-button {
     font-family: 'Roboto';
     font-weight: 500;
@@ -204,27 +324,54 @@ ul {
     cursor: pointer;
     color: var(--primary-title-color);
     background-color: var(--background-light-color);
+    border-radius: 4px;
+    padding: 6px 26px;
+    border: none;
+    margin: 0 8px;
 }
 
 .portfolio-button:hover,
 .portfolio-button:focus {
     background-color: var(--accent-color);
     color: var(--secondary-title-color);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
 }
 
-.portolio-card-title {
+.portfolio-card {
+    display: flex;
+    height: 404px;
+    flex-direction: column;
+    background-color: var(--secondary-title-color);
+    border: 1px solid #EEEEEE;
+    margin-top: 30px;
+}
+
+.portfolio-card-section-title {
+    padding-top: 0;
+}
+
+.portfolio-card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.portfolio-card-title {
     font-weight: 700;
     font-size: 18px;
     line-height: calc(36/18);
     letter-spacing: 0.06em;
-    color: var(--primary-title-color)
+    color: var(--primary-title-color);
+    margin: 20px 0 4px 24px;
 }
 
 .portfolio-card-text {
     font-weight: 400;
     font-size: 16px;
     line-height: calc(30/16);
-    color: var(--secondary-text-color)
+    color: var(--secondary-text-color);
+    margin-left: 24px;
 }
 
 
