@@ -131,8 +131,9 @@ img {
     line-height: calc(16/14);
     letter-spacing: 0.02em;
     color: var(--secondary-text-color);
-    padding: 32px 0;
-    display: block;
+    display: flex;
+    align-items: center;
+    padding: 32px 0;    
 }
 
 .header-contact-link:hover,
@@ -140,6 +141,9 @@ img {
     color: var(--accent-color)
 }
 
+.header-contact-list-icon {
+    
+}
 /* Hero */
 
 .hero-section {
@@ -435,5 +439,16 @@ img {
     color: var(--secondary-text-color);
     margin-left: 24px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
